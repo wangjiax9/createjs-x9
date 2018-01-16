@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>createjs实践1</title>
+	</head>
+	<body>
+		<canvas id="canvas" style="border:1px #000 solid;" width="1000" height="500"></canvas>
+		<script src="lib/easeljs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/tweenjs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var canvas;
+			var stage;
+			var txt;
+			var count = 0;
+		    canvas = document.getElementById("canvas");
+		
+		    // 创建一个舞台对象
+		    stage = new createjs.Stage(canvas);
+		    txt = new createjs.Text("Hello CNBlogs->", "20px Arial", "#ff7700");
+		    stage.addChild(txt);
+		
+		    createjs.Ticker.addEventListener("tick", tick);
+			function tick(e){
+			    count++;
+			    txt.text = "Hello CNBlogs->" + count + "☺";
+			    stage.update();
+			}
+		</script>
+	</body>
+</html>
